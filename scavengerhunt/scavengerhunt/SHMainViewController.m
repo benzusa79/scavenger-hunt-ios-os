@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 RadiusNetworks. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "SHMainViewController.h"
 #import "SHAppDelegate.h"
 #import "SHHelpViewController.h"
@@ -29,6 +30,7 @@
 
 - (void)viewDidLoad
 {
+    [self customizeButtons];
     [super viewDidLoad];
     _appDelegate = (SHAppDelegate *)[[UIApplication sharedApplication] delegate];
     self.title = @"Scavenger Hunt";
@@ -206,5 +208,11 @@
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
         return [bundle pathForResource:@"ProximityKit" ofType:@"plist"];
     }
+}
+
+- (void)customizeButtons {
+    self.startButton.layer.cornerRadius = 8.0f;
+    self.startButton.layer.borderWidth = 1.0f;
+    self.startButton.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 @end
